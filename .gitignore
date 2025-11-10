@@ -1,0 +1,71 @@
+# -------------------------------
+# Python cache / bytecode
+# -------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+
+# -------------------------------
+# Virtual environments
+# -------------------------------
+.venv/
+venv/
+ENV/
+env/
+env.bak/
+venv.bak/
+
+# -------------------------------
+# Poetry / dependencies
+# -------------------------------
+# poetry.lock  # Uncomment if you want to version lock file
+
+# pyenv
+.python-version
+
+# -------------------------------
+# Logs / coverage / temp
+# -------------------------------
+*.log
+*.pid
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache/
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+tmp/
+temp/
+
+# -------------------------------
+# IDE / Editor folders
+# -------------------------------
+.vscode/
+.idea/
+*.iml
+
+# -------------------------------
+# Mac / Linux / Windows system files
+# -------------------------------
+.DS_Store
+Thumbs.db
+
+# -------------------------------
+# FastAPI / project-specific
+# -------------------------------
+# Local JSON data files for libraries
+src/**/jsons/*.json
+
+# Compiled templates / static
+staticfiles/
+media/
+
+# Mypy / Ruff / Black caches
+.mypy_cache/
+.ruff_cache/
+.black/
