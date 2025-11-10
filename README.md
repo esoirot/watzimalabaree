@@ -28,7 +28,10 @@ poetry install
 
 
 Run the project
-poetry run uvicorn watzimalabaree:app --reload
+poetry run python run.py
+
+
+You can access the integrated documentation via
+/docs <= Swagger UI
 or
-poetry shell
-uvicorn watzimalabaree:app --reload
+/redoc <= ReDoc
