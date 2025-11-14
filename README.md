@@ -35,3 +35,15 @@ You can access the integrated documentation via
 /docs <= Swagger UI
 or
 /redoc <= ReDoc
+
+
+Format, Linting and Type check
+poetry run black src/        # format all files
+poetry run ruff check src/   # lint all files
+poetry run mypy src/         # type check all files
+
+
+With latest version of Python 3.14 tehre are some packages / libraries that are now deprecated
+thus to launch the precommit
+
+poetry run pre-commit run --hook-stage manual --all-files --exclude black

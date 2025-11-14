@@ -3,12 +3,12 @@ name = "watzimalabaree"
 version = "0.1.0"
 description = ""
 authors = [
-    {name = "Eliott Soirot",email = "esoirot@gmail.com"}
+    {name = "Eliott Soirot", email = "esoirot@gmail.com"}
 ]
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
-    "fastapi[standard] (>=0.121.1,<0.122.0)"
+    "fastapi[standard] >=0.121.1,<0.122.0"
 ]
 
 [tool.poetry]
@@ -17,3 +17,25 @@ packages = [{include = "watzimalabaree", from = "src"}]
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+pre-commit = "run_precommit:main"
+
+[tool.poetry.group.dev.dependencies]
+black = "^25.11.0"
+ruff = ">=0.14.4,<0.15.0"
+mypy = ">=1.18.2,<2.0.0"
+pre-commit = ">=4.4.0,<5.0.0"
+
+[tool.black]
+line-length = 100
+
+[tool.ruff]
+line-length = 100
+fix = true
+select = ["E", "F", "I"]
+
+[tool.mypy]
+python_version = 3.14
+ignore_missing_imports = true
+strict = true
