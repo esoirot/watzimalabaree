@@ -1,7 +1,7 @@
 from watzimalabaree.models.item import Item
 
 
-class Book(Item):
+class BoardGame(Item):
     id: int
     name: str = ""
     price: float = 0.0

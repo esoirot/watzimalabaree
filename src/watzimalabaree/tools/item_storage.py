@@ -36,7 +36,7 @@ def save_items(items: List[T], filename: str) -> None:
     """Save items (list of models) into a JSON file."""
     file_path: Path = get_json_path(filename)
     with open(file_path, "w", encoding="utf-8") as f:
-        json.dump([item.dict() for item in items], f, indent=4)
+        json.dump([item.model_dump() for item in items], f, indent=4)
 
 
 def get_item(model: Type[T], item_id: int, filename: str) -> Optional[T]:

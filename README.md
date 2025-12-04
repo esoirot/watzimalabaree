@@ -47,3 +47,14 @@ With latest version of Python 3.14 tehre are some packages / libraries that are 
 thus to launch the precommit
 
 poetry run pre-commit run --hook-stage manual --all-files --exclude black
+
+
+
+
+
+Naming
+Watzimalabaree => What's in my library
+
+malabaree => My Library
+
+ovazlabaree => Others library

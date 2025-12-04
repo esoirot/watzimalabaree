@@ -1,7 +1,7 @@
-from watzimalabaree.models.item import Item
+from pydantic import BaseModel
 
 
-class Book(Item):
+class Item(BaseModel):
     id: int
     name: str = ""
     price: float = 0.0

@@ -2,10 +2,10 @@ import subprocess
 import sys
 
 
-def main():
+def main() -> None:
     commands = [
-        ["poetry", "run", "black", "--check", "src/"],
-        ["poetry", "run", "ruff", "check", "src/"],
+        ["poetry", "run", "black", "src/"],
+        ["poetry", "run", "ruff", "check", "--fix", "src/"],
         ["poetry", "run", "mypy", "src/"],
     ]
 
@@ -22,6 +22,7 @@ def main():
             sys.exit(result.returncode)
 
     print("\n✅ All checks passed!")
+
 
 if __name__ == "__main__":
     main()

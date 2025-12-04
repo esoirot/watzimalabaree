@@ -3,7 +3,7 @@ from typing import Dict, List
 from fastapi import APIRouter, HTTPException
 
 from watzimalabaree.models.book import Book
-from watzimalabaree.tools.book_storage import (
+from watzimalabaree.tools.item_storage import (
     add_item,
     delete_item,
     get_item,

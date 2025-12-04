@@ -1,19 +1,30 @@
 repos:
-  # - repo: https://github.com/psf/black
-  #   rev: 23.3.0
-  #   hooks:
-  #     - id: black
-
-  - repo: https://github.com/charliermarsh/ruff-pre-commit
-    rev: v0.0.288
+  # --- Black (uses Poetry version)
+  - repo: local
     hooks:
-      - id: ruff
-        args: ["--fix"]
+      - id: black-poetry
+        name: black (poetry)
+        entry: poetry run black
+        language: system
+        types: [python]
 
-  # - repo: https://github.com/pre-commit/mirrors-mypy
-  #   rev: v1.4.1
-  #   hooks:
-  #     - id: mypy
+  # --- Ruff (uses Poetry version)
+  - repo: local
+    hooks:
+      - id: ruff-poetry
+        name: ruff (poetry)
+        entry: poetry run ruff check --fix
+        language: system
+        types: [python]
+
+  # --- Mypy (uses Poetry version)
+  - repo: local
+    hooks:
+      - id: mypy-poetry
+        name: mypy (poetry)
+        entry: poetry run mypy
+        language: system
+        types: [python]
 
   # - repo: local
   #   hooks:
