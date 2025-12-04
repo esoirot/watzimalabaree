@@ -2,7 +2,7 @@ from typing import Dict, List
 
 from fastapi import APIRouter, HTTPException
 
-from watzimalabaree.models.book import Book
+from watzimalabaree.models.item import Item
 from watzimalabaree.tools.item_storage import (
     add_item,
     delete_item,
@@ -12,40 +12,40 @@ from watzimalabaree.tools.item_storage import (
 )
 
 router = APIRouter(prefix="/ovazlabaree", tags=["Ovazlabaree Library"])
-BOOKS_FILE = "ovazlabaree"
+ITEMS_FILE = "ovazlabaree"
 
 
 # ----- Routes -----
-@router.get("/books/", response_model=List[Book])
-def list_books() -> List[Book]:
-    return load_items(Book, BOOKS_FILE)
+@router.get("/items/", response_model=List[Item])
+def list_ovazlabaree_items() -> List[Item]:
+    return load_items(Item, ITEMS_FILE)
 
 
-@router.get("/books/{book_id}", response_model=Book)
-def get_book(book_id: int) -> Book:
-    book = get_item(Book, book_id, BOOKS_FILE)
-    if not book:
-        raise HTTPException(status_code=404, detail="Book not found")
-    return book
+@router.get("/items/{item_id}", response_model=Item)
+def get_ovazlabaree_item(item_id: int) -> Item:
+    item = get_item(Item, item_id, ITEMS_FILE)
+    if not item:
+        raise HTTPException(status_code=404, detail="Item not found")
+    return item
 
 
-@router.post("/books/", response_model=Book)
-def create_book(book: Book) -> Book:
-    add_item(book, BOOKS_FILE)
-    return book
+@router.post("/items/", response_model=Item)
+def create_ovazlabaree_item(item: Item) -> Item:
+    add_item(item, ITEMS_FILE)
+    return item
 
 
-@router.put("/books/{book_id}", response_model=Book)
-def modify_book(book_id: int, book: Book) -> Book:
-    updated = update_item(Book, book_id, book, BOOKS_FILE)
+@router.put("/items/{item_id}", response_model=Item)
+def modify_ovazlabaree_item(item_id: int, item: Item) -> Item:
+    updated = update_item(Item, item_id, item, ITEMS_FILE)
     if not updated:
-        raise HTTPException(status_code=404, detail="Book not found")
-    return book
+        raise HTTPException(status_code=404, detail="Item not found")
+    return item
 
 
-@router.delete("/books/{book_id}", response_model=Dict[str, bool])
-def remove_book(book_id: int) -> Dict[str, bool]:
-    deleted = delete_item(Book, book_id, BOOKS_FILE)
+@router.delete("/items/{item_id}", response_model=Dict[str, bool])
+def remove_ovazlabaree_item(item_id: int) -> Dict[str, bool]:
+    deleted = delete_item(Item, item_id, ITEMS_FILE)
     if not deleted:
-        raise HTTPException(status_code=404, detail="Book not found")
+        raise HTTPException(status_code=404, detail="Item not found")
     return {"ok": True}
